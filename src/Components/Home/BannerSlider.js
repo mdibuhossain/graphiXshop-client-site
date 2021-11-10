@@ -14,7 +14,7 @@ const BannerSlider = () => {
             {slideList.map((item, index) => (
                 <div
                     key={index}
-                    style={{ background: `url('${item}') no-repeat center center`, backgroundSize: '100% 100%', height: '100%' }}
+                    style={{ background: `url('${item}') no-repeat center center`, backgroundSize: 'auto 100%'}}
                 />
             ))}
         </Slider>
