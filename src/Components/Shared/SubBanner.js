@@ -5,7 +5,7 @@ import React from 'react';
 const SubBanner = () => {
     return (
         <Container>
-            <Box sx={{ backgroundColor: '#2231F6', color: 'white', position: 'relative', marginTop: '-35px', py: 4, px: 6 }}>
+            <Box sx={{ backgroundColor: '#2231F6', color: 'white', position: 'relative', marginTop: '-100px', py: 4, px: 6 }}>
                 <Typography variant="h6">
                     WELCOME
                 </Typography>
