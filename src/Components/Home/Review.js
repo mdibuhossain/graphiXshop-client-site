@@ -34,7 +34,7 @@ const Review = () => {
                 {
                     reviews.map(review => {
                         return (
-                            <Paper variant="outlined" sx={{ margin: '0 10px', padding: '15px' }}>
+                            <Paper key={review._id} variant="outlined" sx={{ margin: '0 10px', padding: '15px' }}>
                                 <Typography variant="subtitle1">
                                     {review.description}
                                 </Typography>
