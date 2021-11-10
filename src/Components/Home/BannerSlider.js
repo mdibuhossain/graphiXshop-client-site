@@ -10,7 +10,7 @@ const slideList = [banner1, banner2, banner3, banner4];
 
 const BannerSlider = () => {
     return (
-        <Slider autoplay={3000} className="slider">
+        <Slider autoplay={1000} className="slider">
             {slideList.map((item, index) => (
                 <div
                     key={index}
