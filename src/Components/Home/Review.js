@@ -3,6 +3,7 @@ import { Box } from '@mui/system';
 import React, { useEffect, useState } from 'react';
 import AliceCarousel from 'react-alice-carousel';
 import "react-alice-carousel/lib/alice-carousel.css";
+import Title from '../Shared/Title';
 
 const Review = () => {
     const [reviews, setReviews] = useState([]);
@@ -24,6 +25,10 @@ const Review = () => {
     };
     return (
         <Container>
+            <Title
+            subTitle="TESTIMONIAL"
+            title="Clients Feedback"
+            />
             <AliceCarousel
                 responsive={responsive}
                 autoPlay={true}

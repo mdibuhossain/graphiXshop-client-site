@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Button, Container, Grid } from '@mui/material';
 import { Box } from '@mui/system';
 import Product from '../Shared/Product';
+import Title from '../Shared/Title';
 
 const DisplayProduct = () => {
     const [disProduct, setDisProduct] = useState([]);
@@ -16,6 +17,10 @@ const DisplayProduct = () => {
     return (
         <Box sx={{ my: 5 }}>
             <Container>
+                <Title
+                    subTitle="PRODUCT"
+                    title="Our Product"
+                />
                 <Grid container spacing={2}>
                     {
                         disProduct.map(product => <Product

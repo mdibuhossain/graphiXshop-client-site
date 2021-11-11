@@ -2,6 +2,7 @@ import { Button, Container, TextField, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React from 'react';
 import tacking from '../../images/tracking.png';
+import Title from '../Shared/Title';
 
 const trackingBD = {
     background: `url(${tacking}) no-repeat center center`,
@@ -13,14 +14,10 @@ const TrackingBanner = () => {
         <Box style={trackingBD} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
             <Container>
                 <Box>
-                    <Box sx={{ textAlign: 'center', color: 'white' }}>
-                        <Typography variant="h4">
-                            Tracking
-                        </Typography>
-                        <Typography variant="h4">
-                            Track Your Shipment
-                        </Typography>
-                    </Box>
+                    <Title
+                        subTitle="TRACKING"
+                        title="Track Your Shipment"
+                    />
                     <Box sx={{ display: 'flex' }}>
                         <TextField fullWidth sx={{ backgroundColor: 'white' }} />
                         <Button variant="contained">Track</Button>

@@ -5,7 +5,7 @@ const Product = ({ product }) => {
     return (
         <Grid item xs={12} md={4}>
             <Card sx={{ maxWidth: 370, margin: 'auto' }}>
-                <CardActionArea>
+                <CardActionArea sx={{minHeight: 400}}>
                     <CardMedia
                         component="img"
                         height="100%"
