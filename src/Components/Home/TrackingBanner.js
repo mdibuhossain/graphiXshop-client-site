@@ -17,6 +17,7 @@ const TrackingBanner = () => {
                     <Title
                         subTitle="TRACKING"
                         title="Track Your Shipment"
+                        color="white"
                     />
                     <Box sx={{ display: 'flex' }}>
                         <TextField fullWidth sx={{ backgroundColor: 'white' }} />
