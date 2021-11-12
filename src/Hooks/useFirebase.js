@@ -10,6 +10,7 @@ export const useFirebase = () => {
     const [error, setError] = useState('');
     const [isLoading, setIsLoading] = useState(true);
     const [order, setOrder] = useState({});
+    const [reviewValue, setReviewValue] = useState(0);
 
     const userRegister = (name, email, password, location, history) => {
         setIsLoading(true);
@@ -80,7 +81,9 @@ export const useFirebase = () => {
         logOut,
         setOrder,
         isLoading,
-        userRegister
+        reviewValue,
+        userRegister,
+        setReviewValue,
     }
 }
 

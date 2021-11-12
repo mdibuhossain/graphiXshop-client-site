@@ -7,6 +7,7 @@ import Register from './Pages/Register';
 import AllProducts from './Pages/AllProducts';
 import PrivateRoute from './ProtectedRoute/PrivateRoute';
 import PurchaseOrder from './Pages/PurchaseOrder';
+import Dashboard from './Pages/Dashboard';
 
 function App() {
   return (
@@ -28,6 +29,9 @@ function App() {
             </PrivateRoute>
             <PrivateRoute path='/purchase'>
               <PurchaseOrder />
+            </PrivateRoute>
+            <PrivateRoute path='/dashboard'>
+              <Dashboard />
             </PrivateRoute>
           </Switch>
         </BrowserRouter>

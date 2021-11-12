@@ -1,12 +1,14 @@
-import { Container, Paper, Typography } from '@mui/material';
+import { Container, Paper, Rating, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { useEffect, useState } from 'react';
 import AliceCarousel from 'react-alice-carousel';
 import "react-alice-carousel/lib/alice-carousel.css";
+import useAuth from '../../Hooks/useAuth';
 import Title from '../Shared/Title';
 
 const Review = () => {
     const [reviews, setReviews] = useState([]);
+    const { reviewValue } = useAuth();
     useEffect(() => {
         fetch(`http://localhost:5000/reviews`)
             .then(res => res.json())
@@ -26,8 +28,8 @@ const Review = () => {
     return (
         <Container>
             <Title
-            subTitle="TESTIMONIAL"
-            title="Clients Feedback"
+                subTitle="TESTIMONIAL"
+                title="Clients Feedback"
             />
             <AliceCarousel
                 responsive={responsive}
@@ -43,6 +45,13 @@ const Review = () => {
                                 <Typography variant="subtitle1">
                                     {review.description}
                                 </Typography>
+                                <Rating
+                                    readOnly
+                                    name="size-small"
+                                    defaultValue={parseInt(review.rating)}
+                                    precision={0.5}
+                                    size="small"
+                                />
                                 <Box sx={{ mt: 2 }}>
                                     <Typography variant="subtitle2">
                                         {review.name}

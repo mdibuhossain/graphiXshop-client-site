@@ -6,11 +6,8 @@ import TrackingBanner from '../Components/Home/TrackingBanner';
 import Footer from '../Components/Shared/Footer';
 import Navigation from '../Components/Shared/Navigation';
 import SubBanner from '../Components/Shared/SubBanner';
-import { useFirebase } from '../Hooks/useFirebase';
 
 const Home = () => {
-    const {user} = useFirebase();
-    console.log(user);
     return (
         <div>
             <Navigation />
