@@ -12,8 +12,6 @@ const DisplayProduct = () => {
             .then(data => setDisProduct(data))
     }, [])
 
-    console.log(disProduct);
-
     return (
         <Box sx={{ my: 5 }}>
             <Container>
