@@ -4,6 +4,7 @@ import Home from './Pages/Home';
 import Login from './Pages/Login';
 import AuthContext from './Context/AuthContext';
 import Register from './Pages/Register';
+import AllProducts from './Pages/AllProducts';
 
 function App() {
   return (
@@ -19,6 +20,9 @@ function App() {
             </Route>
             <Route path='/register'>
               <Register />
+            </Route>
+            <Route path='/explore'>
+              <AllProducts />
             </Route>
           </Switch>
         </BrowserRouter>

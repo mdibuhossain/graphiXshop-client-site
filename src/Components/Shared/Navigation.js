@@ -6,6 +6,7 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
+import { Link } from 'react-router-dom';
 
 export default function Navigation() {
     return (
@@ -22,9 +23,16 @@ export default function Navigation() {
                         <MenuIcon />
                     </IconButton>
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                        GraphiXshop
+                        <Link to='/' style={{ color: 'inherit', textDecoration: 'none' }}>
+                            GraphiXshop
+                        </Link>
                     </Typography>
-                    <Button color="inherit">Login</Button>
+                    <Link to='/explore' style={{ color: 'inherit', textDecoration: 'none' }}>
+                        <Button color="inherit">Products</Button>
+                    </Link>
+                    <Link to='/login' style={{ color: 'inherit', textDecoration: 'none' }}>
+                        <Button color="inherit">Login</Button>
+                    </Link>
                 </Toolbar>
             </AppBar>
         </Box>

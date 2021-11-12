@@ -3,6 +3,7 @@ import { Button, Container, Grid } from '@mui/material';
 import { Box } from '@mui/system';
 import Product from '../Shared/Product';
 import Title from '../Shared/Title';
+import { Link } from 'react-router-dom';
 
 const DisplayProduct = () => {
     const [disProduct, setDisProduct] = useState([]);
@@ -27,7 +28,9 @@ const DisplayProduct = () => {
                         />)
                     }
                 </Grid>
-                <Button variant="contained" sx={{ margin: '25px auto', display: 'block' }}>See more</Button>
+                <Link to='/explore' style={{ color: 'inherit', textDecoration: 'none' }}>
+                    <Button variant="contained" sx={{ margin: '25px auto', display: 'block' }}>See more</Button>
+                </Link>
             </Container>
         </Box>
     );

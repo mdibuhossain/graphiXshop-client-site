@@ -32,7 +32,7 @@ const Register = () => {
             <Navigation />
             <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                 <Container sx={{ mt: 10 }}>
-                    <Grid container spacing={2} sx={{alignItems:'center'}}>
+                    <Grid container spacing={2} sx={{ alignItems: 'center' }}>
                         <Grid item xs={12} md={6} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }} >
                             <form onSubmit={handleLogIn}>
                                 <Typography variant="body1" sx={{ mb: 3, fontWeight: 600 }}>
