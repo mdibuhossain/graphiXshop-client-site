@@ -7,16 +7,17 @@ import placeOrder from '../images/placeOrder.jpg';
 
 const PurchaseOrder = () => {
     const [orderSuccess, setOrderSuccess] = useState(false);
-    const { user } = useAuth();
+    const { user, order } = useAuth();
     const date = new Date().toLocaleDateString();
     const initUserData = {
         userName: user?.displayName,
         email: user?.email,
         phone: '',
-        description: ''
+        description: '',
+        status: 'pending',
+        product: { ...order }
     };
     const [userData, setUserData] = useState(initUserData);
-
     const handleOnBlue = (e) => {
         const field = e.target.name;
         const value = e.target.value;
