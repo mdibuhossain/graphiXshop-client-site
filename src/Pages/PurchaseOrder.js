@@ -1,12 +1,48 @@
-import { Container, Grid, TextField } from '@mui/material';
+import { Alert, Button, Container, Grid, TextField } from '@mui/material';
 import { Box } from '@mui/system';
-import React from 'react';
+import React, { useState } from 'react';
 import Navigation from '../Components/Shared/Navigation';
 import useAuth from '../Hooks/useAuth';
 import placeOrder from '../images/placeOrder.jpg';
 
 const PurchaseOrder = () => {
+    const [orderSuccess, setOrderSuccess] = useState(false);
     const { user } = useAuth();
+    const date = new Date().toLocaleDateString();
+    const initUserData = {
+        userName: user?.displayName,
+        email: user?.email,
+        phone: '',
+        description: ''
+    };
+    const [userData, setUserData] = useState(initUserData);
+
+    const handleOnBlue = (e) => {
+        const field = e.target.name;
+        const value = e.target.value;
+        const updateUserData = { ...userData };
+        updateUserData[field] = value;
+        updateUserData["data"] = date;
+        setUserData(updateUserData);
+    }
+
+    const handleSubmitOrder = (e) => {
+        fetch('http://localhost:5000/orders', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(userData)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.insertedId) {
+                    setOrderSuccess(true);
+                }
+            })
+        e.preventDefault();
+    }
+
     return (
         <>
             <Navigation />
@@ -14,9 +50,9 @@ const PurchaseOrder = () => {
                 <Container>
                     <Grid container spacing={2} sx={{ alignItems: 'center' }}>
                         <Grid item xs={12} md={6}>
-                            <form>
+                            <form onSubmit={handleSubmitOrder}>
                                 <Box sx={{ margin: 'auto' }}>
-                                    <Grid container spacing={5} sx={{ flexDirection: 'column' }}>
+                                    <Grid container spacing={3} sx={{ flexDirection: 'column' }}>
                                         <Grid item sm={12}>
                                             <TextField
                                                 sx={{ width: '100%', margin: 'auto' }}
@@ -24,6 +60,7 @@ const PurchaseOrder = () => {
                                                 label="Name"
                                                 defaultValue={user?.displayName}
                                                 variant="standard"
+                                                disabled
                                             />
                                         </Grid>
                                         <Grid item sm={12}>
@@ -33,6 +70,7 @@ const PurchaseOrder = () => {
                                                 label="Email"
                                                 defaultValue={user?.email}
                                                 variant="standard"
+                                                disabled
                                             />
                                         </Grid>
                                         <Grid item sm={12}>
@@ -40,16 +78,36 @@ const PurchaseOrder = () => {
                                                 sx={{ width: '100%', margin: 'auto' }}
                                                 type="text"
                                                 label="Phone number"
+                                                name="phone"
                                                 variant="standard"
+                                                onBlur={handleOnBlue}
+                                            />
+                                        </Grid>
+                                        <Grid item sm={12}>
+                                            <TextField
+                                                sx={{ width: '100%', margin: 'auto' }}
+                                                type="text"
+                                                label="Date of order"
+                                                variant="standard"
+                                                defaultValue={date}
+                                                disabled
                                             />
                                         </Grid>
                                         <Grid item sm={12}>
                                             <TextField
                                                 sx={{ width: '100%', margin: 'auto' }}
                                                 label="Description(optional)"
+                                                name="description"
                                                 multiline
                                                 rows={4}
+                                                onBlur={handleOnBlue}
                                             />
+                                        </Grid>
+                                        <Grid item sm={12}>
+                                            <Button type="submit" variant="contained">Submit</Button>
+                                        </Grid>
+                                        <Grid item sm={12}>
+                                            {orderSuccess && <Alert severity="success">Order placed successfully!</Alert>}
                                         </Grid>
                                     </Grid>
                                 </Box>
