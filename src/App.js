@@ -5,6 +5,8 @@ import Login from './Pages/Login';
 import AuthContext from './Context/AuthContext';
 import Register from './Pages/Register';
 import AllProducts from './Pages/AllProducts';
+import PrivateRoute from './ProtectedRoute/PrivateRoute';
+import PurchaseOrder from './Pages/PurchaseOrder';
 
 function App() {
   return (
@@ -21,9 +23,12 @@ function App() {
             <Route path='/register'>
               <Register />
             </Route>
-            <Route path='/explore'>
+            <PrivateRoute path='/explore'>
               <AllProducts />
-            </Route>
+            </PrivateRoute>
+            <PrivateRoute path='/purchase'>
+              <PurchaseOrder />
+            </PrivateRoute>
           </Switch>
         </BrowserRouter>
       </AuthContext>

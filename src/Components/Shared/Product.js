@@ -18,7 +18,7 @@ const Product = ({ product }) => {
                         </Typography>
                     </CardContent>
                 </CardActionArea>
-                <Button variant="contained" sx={{ width: 1 }}>Bal</Button>
+                <Button variant="contained" sx={{ width: 1, borderRadius: 0 }}>Add to cart</Button>
             </Card>
         </Grid>
     );

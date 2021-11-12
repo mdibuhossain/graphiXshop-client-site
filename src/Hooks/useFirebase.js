@@ -10,7 +10,7 @@ export const useFirebase = () => {
     const [error, setError] = useState('');
     const [isLoading, setIsLoading] = useState(true);
 
-    const userRegister = (name, email, password, history, location) => {
+    const userRegister = (name, email, password, location, history) => {
         setIsLoading(true);
         createUserWithEmailAndPassword(auth, email, password)
             .then(result => {
@@ -21,15 +21,20 @@ export const useFirebase = () => {
                 updateProfile(auth.currentUser, {
                     displayName: name
                 }).then(() => { }).catch(error => setError(error.message))
+                const destination = location?.state?.from?.pathname || '/';
+                history.push(destination);
             }).catch(error => setError(error.message)).finally(() => setIsLoading(false))
     }
 
     const logIn = (email, password, location, history) => {
+        console.log(location, history);
         setIsLoading(true);
         signInWithEmailAndPassword(auth, email, password)
             .then(result => {
                 setUser(result.user);
                 setError('');
+                const destination = location?.state?.from?.pathname || '/';
+                history.push(destination);
             }).catch(error => setError(error.message)).finally(() => setIsLoading(false))
     }
 
@@ -39,6 +44,7 @@ export const useFirebase = () => {
             .then(() => {
                 setUser({});
                 setError('');
+                // history.push('/');
             }).catch((error) => setError(error.message)).finally(() => setIsLoading(false))
     }
 
@@ -63,7 +69,7 @@ export const useFirebase = () => {
             setIsLoading(false);
         });
         return () => unsubscribe;
-    }, [])
+    }, [auth])
 
     return {
         user,
