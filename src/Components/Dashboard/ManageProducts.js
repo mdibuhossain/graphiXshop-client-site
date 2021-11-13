@@ -14,7 +14,7 @@ const ManageProducts = () => {
     const [productList, setProductList] = React.useState([]);
 
     React.useEffect(() => {
-        fetch(`http://localhost:5000/products`)
+        fetch(`https://shielded-headland-50795.herokuapp.com/products`)
             .then(res => res.json())
             .then(data => setProductList(data))
     }, [productList])
@@ -22,7 +22,7 @@ const ManageProducts = () => {
     const handleCancelOrder = async (id) => {
         const conf = await window.confirm('Are you sure want to delete your order?');
         if (conf) {
-            const url = await fetch(`http://localhost:5000/products/${id}`, {
+            const url = await fetch(`https://shielded-headland-50795.herokuapp.com/products/${id}`, {
                 method: 'DELETE'
             });
             const res = await url.json();

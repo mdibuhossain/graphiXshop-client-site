@@ -28,7 +28,7 @@ const PurchaseOrder = () => {
     }
 
     const handleSubmitOrder = async (e) => {
-        fetch('http://localhost:5000/orders', {
+        fetch('https://shielded-headland-50795.herokuapp.com/orders', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

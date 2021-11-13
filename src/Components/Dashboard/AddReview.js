@@ -22,7 +22,7 @@ const AddReview = () => {
         setReviewData(tmpReview);
     }
     const handleSubmitReview = (e) => {
-        fetch('http://localhost:5000/reviews', {
+        fetch('https://shielded-headland-50795.herokuapp.com/reviews', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'

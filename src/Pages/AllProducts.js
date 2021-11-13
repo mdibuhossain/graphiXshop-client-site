@@ -9,7 +9,7 @@ import Footer from '../Components/Shared/Footer';
 const AllProducts = () => {
     const [disProduct, setDisProduct] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/products`)
+        fetch(`https://shielded-headland-50795.herokuapp.com/products`)
             .then(res => res.json())
             .then(data => setDisProduct(data))
     }, [])

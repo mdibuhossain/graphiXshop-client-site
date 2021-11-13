@@ -10,7 +10,7 @@ const Review = () => {
     const [reviews, setReviews] = useState([]);
     const { reviewValue } = useAuth();
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews`)
+        fetch(`https://shielded-headland-50795.herokuapp.com/reviews`)
             .then(res => res.json())
             .then(data => setReviews(data))
     }, [])

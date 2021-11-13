@@ -12,7 +12,7 @@ const ManageAllOrders = () => {
     const [orderList, setOrderList] = React.useState([]);
 
     React.useEffect(() => {
-        fetch(`http://localhost:5000/allorders`)
+        fetch(`https://shielded-headland-50795.herokuapp.com/allorders`)
             .then(res => res.json())
             .then(data => setOrderList(data))
     }, [orderList])
@@ -20,7 +20,7 @@ const ManageAllOrders = () => {
     const handleCancelOrder = async (id) => {
         const conf = await window.confirm('Are you sure want to delete this order?');
         if (conf) {
-            const url = await fetch(`http://localhost:5000/orders/${id}`, {
+            const url = await fetch(`https://shielded-headland-50795.herokuapp.com/orders/${id}`, {
                 method: 'DELETE'
             });
             const res = await url.json();
@@ -32,7 +32,7 @@ const ManageAllOrders = () => {
     }
 
     const handleStatus = (id) => {
-        fetch(`http://localhost:5000/order/status/${id}`, {
+        fetch(`https://shielded-headland-50795.herokuapp.com/order/status/${id}`, {
             method: "PUT",
             headers: {
                 'content-type': 'application/json'
