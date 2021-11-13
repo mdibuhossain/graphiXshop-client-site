@@ -24,6 +24,16 @@ const Product = ({ product }) => {
                         <Typography gutterBottom variant="h5" component="div">
                             {product.name}
                         </Typography>
+                        <Typography gutterBottom variant="h6" component="div" sx={{ color: '#1565C0', fontWeight: '600' }}>
+                            ${product.price}
+                        </Typography>
+                        <Typography variant="body2" color="text.secondary"
+                            sx={{
+                                height: '100px'
+                            }}
+                        >
+                            {product.description}
+                        </Typography>
                     </CardContent>
                 </CardActionArea>
                 <Link to='/purchase' style={{ color: 'inherit', textDecoration: 'none' }}>

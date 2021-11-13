@@ -8,8 +8,8 @@ const Footer = () => {
     return (
         <Box sx={{ backgroundColor: '#303540', color: 'white', mt: 10, pt: 8 }}>
             <Container>
-                <Grid container spacing={10}>
-                    <Grid item md={4}>
+                <Grid container spacing={2}>
+                    <Grid item md={4} xs={12}>
                         <Box>
                             <img src={logo} alt="" style={{ width: '230px' }} />
                         </Box>
@@ -19,7 +19,7 @@ const Footer = () => {
                             </Typography>
                         </Box>
                     </Grid>
-                    <Grid item md={4}>
+                    <Grid item md={4} xs={12}>
                         <Typography sx={{ fontWeight: 500 }}>
                             Pages
                         </Typography>
@@ -29,9 +29,9 @@ const Footer = () => {
                             <Link to='/dashboard' style={{ color: 'white', textDecoration: 'none', display: 'block', marginBottom: '5px' }}>Dashboard</Link>
                         </Box>
                     </Grid>
-                    <Grid item md={4}>
+                    <Grid item md={4} xs={12}>
                         <Box sx={{ backgroundColor: 'rgba(94, 94, 94, 0.3)', display: 'flex', flexDirection: 'column', alignItems: 'center', py: 5, borderRadius: 4 }}>
-                            <Box sx={{ display: 'flex', flexDirection: 'column', width: '280px' }}>
+                            <Box sx={{ display: 'flex', flexDirection: 'column', width: '250px' }}>
                                 <Typography variant="h4">
                                     Newsletter
                                 </Typography>
@@ -54,7 +54,7 @@ const Footer = () => {
                     </Grid>
                 </Grid>
             </Container>
-            <Box sx={{backgroundColor:'rgba(20, 21, 22, 0.5)', mt: 5, py: 2, textAlign:'center', color: 'rgb(198, 198, 198)'}}>
+            <Box sx={{ backgroundColor: 'rgba(20, 21, 22, 0.5)', mt: 5, py: 2, textAlign: 'center', color: 'rgb(198, 198, 198)' }}>
                 <Typography>Copyright © 2021 graphiXshop LTD. All rights reserved.</Typography>
             </Box>
         </Box>
