@@ -38,6 +38,7 @@ const AddReview = () => {
     }
     return (
         <Box>
+            <Typography variant="h5" sx={{ my: 2 }}>Feedback</Typography>
             <form onSubmit={handleSubmitReview}>
                 <TextField
                     sx={{ width: '100%', margin: 'auto', mb: 3 }}

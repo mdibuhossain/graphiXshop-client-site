@@ -1,4 +1,4 @@
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged, updateProfile } from 'firebase/auth';
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged, updateProfile, getIdToken } from 'firebase/auth';
 import { useEffect, useState } from 'react';
 import { initAuth } from "../Firebase/initAuth"
 
@@ -9,6 +9,7 @@ export const useFirebase = () => {
     const [user, setUser] = useState({});
     const [error, setError] = useState('');
     const [isLoading, setIsLoading] = useState(true);
+    const [token, setToken] = useState('');
     const [order, setOrder] = useState({});
     const [reviewValue, setReviewValue] = useState(0);
 
@@ -65,6 +66,10 @@ export const useFirebase = () => {
         const unsubscribe = onAuthStateChanged(auth, (user) => {
             if (user) {
                 setUser(user);
+                getIdToken(user)
+                    .then(idToken => {
+                        setToken(idToken);
+                    })
             }
             else
                 setUser({});
@@ -77,6 +82,7 @@ export const useFirebase = () => {
         user,
         logIn,
         error,
+        token,
         order,
         logOut,
         setOrder,
