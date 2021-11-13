@@ -21,3 +21,4 @@
 - Admin can make new admin
 - Admin can manage all orders
 - Normal user can buy product
+- Normal user can cancel ordered product
