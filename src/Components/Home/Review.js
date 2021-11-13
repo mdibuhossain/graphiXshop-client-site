@@ -3,12 +3,10 @@ import { Box } from '@mui/system';
 import React, { useEffect, useState } from 'react';
 import AliceCarousel from 'react-alice-carousel';
 import "react-alice-carousel/lib/alice-carousel.css";
-import useAuth from '../../Hooks/useAuth';
 import Title from '../Shared/Title';
 
 const Review = () => {
     const [reviews, setReviews] = useState([]);
-    const { reviewValue } = useAuth();
     useEffect(() => {
         fetch(`https://shielded-headland-50795.herokuapp.com/reviews`)
             .then(res => res.json())

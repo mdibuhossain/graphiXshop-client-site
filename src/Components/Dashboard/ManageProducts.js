@@ -6,11 +6,9 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { Button, CircularProgress, Typography } from '@mui/material';
-import useAuth from '../../Hooks/useAuth';
+import { Button, Typography } from '@mui/material';
 
 const ManageProducts = () => {
-    const { user, token } = useAuth();
     const [productList, setProductList] = React.useState([]);
 
     React.useEffect(() => {

@@ -1,7 +1,6 @@
 import { Alert, Button, TextField, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { useState } from 'react';
-import useAuth from '../../Hooks/useAuth';
 
 const AddProduct = () => {
 

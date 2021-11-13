@@ -7,7 +7,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import useAuth from '../../Hooks/useAuth';
-import { Button, CircularProgress, Typography } from '@mui/material';
+import { Button, Typography } from '@mui/material';
 
 const MyOrder = () => {
     const { user, token } = useAuth();

@@ -5,28 +5,22 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { Button } from '@mui/material';
 import useAuth from '../Hooks/useAuth';
 import {
-    BrowserRouter as Router,
     Switch,
     Route,
     Link,
-    useParams,
     useRouteMatch
 } from "react-router-dom";
 import Pay from '../Components/Dashboard/Pay';
 import MyOrder from '../Components/Dashboard/MyOrder';
-import Review from '../Components/Home/Review';
 import AddReview from '../Components/Dashboard/AddReview';
 import AdminRoute from '../ProtectedRoute/AdminRoute';
 import MakeAdmin from '../Components/Dashboard/MakeAdmin';
