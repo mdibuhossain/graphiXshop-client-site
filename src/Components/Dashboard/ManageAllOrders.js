@@ -69,7 +69,7 @@ const ManageAllOrders = () => {
                                     {order?.status} <Button onClick={()=>handleStatus(order._id)} variant="contained" sx={{ ml: 2 }}>shipped</Button>
                                 </TableCell>
                                 <TableCell align="left">
-                                    <Button onClick={() => handleCancelOrder(order._id)}>delete</Button>
+                                    <Button onClick={() => handleCancelOrder(order._id)}>Cancel</Button>
                                 </TableCell>
                             </TableRow>
                         ))}

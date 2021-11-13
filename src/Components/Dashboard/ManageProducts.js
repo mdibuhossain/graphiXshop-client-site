@@ -56,9 +56,9 @@ const ManageProducts = () => {
                                     sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                                 >
                                     <TableCell component="th" scope="order?">{order?.name}</TableCell>
-                                    <TableCell align="left">$5</TableCell>
+                                    <TableCell align="left">${order?.price}</TableCell>
                                     <TableCell align="left">
-                                        <Button onClick={() => handleCancelOrder(order._id)}>Cancel</Button>
+                                        <Button onClick={() => handleCancelOrder(order._id)}>Delete</Button>
                                     </TableCell>
                                 </TableRow>
                             ))}
