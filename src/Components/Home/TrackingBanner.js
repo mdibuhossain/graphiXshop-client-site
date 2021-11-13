@@ -11,7 +11,7 @@ const trackingBD = {
 
 const TrackingBanner = () => {
     return (
-        <Box style={trackingBD} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        <Box style={trackingBD} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', my: 8 }}>
             <Container>
                 <Box>
                     <Title

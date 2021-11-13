@@ -14,8 +14,8 @@ const Home = () => {
             <BannerSlider />
             <SubBanner />
             <DisplayProduct />
-            <Review />
             <TrackingBanner />
+            <Review />
             <Footer />
         </div>
     );

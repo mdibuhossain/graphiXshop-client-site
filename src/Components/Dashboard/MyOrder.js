@@ -50,23 +50,20 @@ const MyOrder = () => {
                             <TableCell align="left">Action</TableCell>
                         </TableRow>
                     </TableHead>
-                    {
-                        (orderList[0]?.name) &&
-                        <TableBody>
-                            {orderList.map((order) => (
-                                <TableRow
-                                    key={order?._id}
-                                    sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                                >
-                                    <TableCell component="th" scope="order?">{order?.product?.name}</TableCell>
-                                    <TableCell align="left">{order?.status}</TableCell>
-                                    <TableCell align="left">
-                                        <Button onClick={() => handleCancelOrder(order._id)}>Cancel</Button>
-                                    </TableCell>
-                                </TableRow>
-                            ))}
-                        </TableBody>
-                    }
+                    <TableBody>
+                        {orderList.map((order) => (
+                            <TableRow
+                                key={order?._id}
+                                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                            >
+                                <TableCell component="th" scope="order?">{order?.product?.name}</TableCell>
+                                <TableCell align="left">{order?.status}</TableCell>
+                                <TableCell align="left">
+                                    <Button onClick={() => handleCancelOrder(order._id)}>Cancel</Button>
+                                </TableCell>
+                            </TableRow>
+                        ))}
+                    </TableBody>
                 </Table>
             </TableContainer>
         </>
