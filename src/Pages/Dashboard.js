@@ -28,6 +28,11 @@ import Pay from '../Components/Dashboard/Pay';
 import MyOrder from '../Components/Dashboard/MyOrder';
 import Review from '../Components/Home/Review';
 import AddReview from '../Components/Dashboard/AddReview';
+import AdminRoute from '../ProtectedRoute/AdminRoute';
+import MakeAdmin from '../Components/Dashboard/MakeAdmin';
+import AddProduct from '../Components/Dashboard/AddProduct';
+import ManageAllOrders from '../Components/Dashboard/ManageAllOrders';
+import ManageProducts from '../Components/Dashboard/ManageProducts';
 
 const drawerWidth = 250;
 
@@ -36,7 +41,8 @@ export default function Dashboard(props) {
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
 
-    const { logOut } = useAuth();
+    const { logOut, admin } = useAuth();
+    console.log(admin);
 
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
@@ -52,21 +58,51 @@ export default function Dashboard(props) {
                         <ListItemText primary="Home" />
                     </ListItem>
                 </Link>
-                <Link to={`${url}/pay`} style={{ color: 'inherit', textDecoration: 'none' }}>
-                    <ListItem button >
-                        <ListItemText primary="Pay" />
-                    </ListItem>
-                </Link>
-                <Link to={`${url}`} style={{ color: 'inherit', textDecoration: 'none' }}>
-                    <ListItem button >
-                        <ListItemText primary="My orders" />
-                    </ListItem>
-                </Link>
-                <Link to={`${url}/review`} style={{ color: 'inherit', textDecoration: 'none' }}>
-                    <ListItem button >
-                        <ListItemText primary="Review" />
-                    </ListItem>
-                </Link>
+                {
+                    admin &&
+                    <Box>
+                        <Link to={`${url}/manageallorders`} style={{ color: 'inherit', textDecoration: 'none' }}>
+                            <ListItem button >
+                                <ListItemText primary="Manage all orders" />
+                            </ListItem>
+                        </Link>
+                        <Link to={`${url}`} style={{ color: 'inherit', textDecoration: 'none' }}>
+                            <ListItem button >
+                                <ListItemText primary="Manage products" />
+                            </ListItem>
+                        </Link>
+                        <Link to={`${url}/addadmin`} style={{ color: 'inherit', textDecoration: 'none' }}>
+                            <ListItem button >
+                                <ListItemText primary="Make admin" />
+                            </ListItem>
+                        </Link>
+                        <Link to={`${url}/addproduct`} style={{ color: 'inherit', textDecoration: 'none' }}>
+                            <ListItem button >
+                                <ListItemText primary="Add product" />
+                            </ListItem>
+                        </Link>
+                    </Box>
+                }
+                {
+                    !admin &&
+                    <Box>
+                        <Link to={`${url}/pay`} style={{ color: 'inherit', textDecoration: 'none' }}>
+                            <ListItem button >
+                                <ListItemText primary="Pay" />
+                            </ListItem>
+                        </Link>
+                        <Link to={`${url}`} style={{ color: 'inherit', textDecoration: 'none' }}>
+                            <ListItem button >
+                                <ListItemText primary="My orders" />
+                            </ListItem>
+                        </Link>
+                        <Link to={`${url}/review`} style={{ color: 'inherit', textDecoration: 'none' }}>
+                            <ListItem button >
+                                <ListItemText primary="Review" />
+                            </ListItem>
+                        </Link>
+                    </Box>
+                }
             </List>
             <Divider />
             <List>
@@ -143,15 +179,28 @@ export default function Dashboard(props) {
                 <Toolbar />
 
                 <Switch>
-                    <Route exact path={path}>
+                    {!admin ? <Route exact path={path}>
                         <MyOrder />
-                    </Route>
-                    <Route path={`${path}/pay`}>
+                    </Route> :
+                        <AdminRoute exact path={`${path}`}>
+                            <ManageProducts />
+                        </AdminRoute>
+                    }
+                    <Route exact path={`${path}/pay`}>
                         <Pay />
                     </Route>
-                    <Route path={`${path}/review`}>
+                    <Route exact path={`${path}/review`}>
                         <AddReview />
                     </Route>
+                    <AdminRoute exact path={`${path}/addproduct`}>
+                        <AddProduct />
+                    </AdminRoute>
+                    <AdminRoute exact path={`${path}/addadmin`}>
+                        <MakeAdmin />
+                    </AdminRoute>
+                    <AdminRoute exact path={`${path}/manageallorders`}>
+                        <ManageAllOrders />
+                    </AdminRoute>
                 </Switch>
 
 
