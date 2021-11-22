@@ -26,13 +26,13 @@ export default function Navigation() {
             color: 'black',
             textDecoration: 'none'
         },
-        navIcon: {
-            [theme.breakpoints.up('md')]: {
+        navContainer: {
+            [theme.breakpoints.down('md')]: {
                 display: 'none'
             }
         },
-        navContainer: {
-            [theme.breakpoints.down('md')]: {
+        navIcon: {
+            [theme.breakpoints.up('md')]: {
                 display: 'none'
             }
         }

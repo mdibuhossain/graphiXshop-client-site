@@ -1,15 +1,14 @@
-import { Alert, Button, TextField, Typography } from '@mui/material';
+import { Alert, Button, Input, TextField, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { useState } from 'react';
 
 const AddProduct = () => {
-
+    const [image, setImage] = useState(null);
     const [isProductAdded, setIsProductAdded] = useState(false);
     const initReviewData = {
         name: '',
         price: '',
-        description: '',
-        img: ''
+        description: ''
     }
     const [newProductData, setNewProductData] = useState(initReviewData);
     const handleOnBlur = (e) => {
@@ -20,22 +19,33 @@ const AddProduct = () => {
         setNewProductData(tmpProduct);
     }
     const handleAddProduct = (e) => {
-        fetch('https://shielded-headland-50795.herokuapp.com/products', {
+        e.preventDefault();
+        if (!image) {
+            alert('Image not selected');
+            return;
+        }
+        const formData = new FormData();
+        formData.append('img', image);
+        for (const key in newProductData) {
+            formData.append(key, newProductData[key]);
+        }
+
+        fetch('http://localhost:5000/products', {
             method: "POST",
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(newProductData)
+            body: formData
         })
             .then(res => res.json())
             .then(data => {
-                if (data.insertedId){
+                if (data.insertedId) {
                     setIsProductAdded(true);
                     setNewProductData({});
                 }
             })
-        e.preventDefault();
     }
+
+    // const Input = styled('input')({
+    //     display: 'none',
+    // });
 
     return (
         <Box>
@@ -46,7 +56,7 @@ const AddProduct = () => {
                     label="Product name"
                     name="name"
                     required
-                    value={newProductData?.name||''}
+                    defaultValue={newProductData?.name || ''}
                     onBlur={handleOnBlur}
                 />
                 <TextField
@@ -54,7 +64,7 @@ const AddProduct = () => {
                     label="Price"
                     name="price"
                     required
-                    value={newProductData?.price||''}
+                    defaultValue={newProductData?.price || ''}
                     onBlur={handleOnBlur}
                 />
                 <TextField
@@ -64,18 +74,23 @@ const AddProduct = () => {
                     multiline
                     required
                     rows={4}
-                    value={newProductData?.description||''}
+                    defaultValue={newProductData?.description || ''}
                     onBlur={handleOnBlur}
                 />
-                <TextField
+                <Input
+                    accept="image/*"
+                    type="file"
+                    onChange={e => setImage(e.target?.files[0])}
+                />
+                {/* <TextField
                     sx={{ width: '100%', margin: 'auto', mb: 3 }}
                     label="Product image link"
                     name="img"
                     variant="standard"
                     required
-                    value={newProductData?.img||''}
+                    value={newProductData?.img || ''}
                     onBlur={handleOnBlur}
-                />
+                /> */}
                 <Button type="submit" variant="contained" sx={{ display: 'block', my: 3 }}>add product</Button>
             </form>
             {isProductAdded && <Alert severity="success">New product added successfully!</Alert>}

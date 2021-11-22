@@ -16,8 +16,8 @@ const Product = ({ product }) => {
                 <CardActionArea sx={{ minHeight: 400 }}>
                     <CardMedia
                         component="img"
-                        height="100%"
-                        image={product.img}
+                        height="350px"
+                        image={(product?.img?.startsWith('https')) ? product.img : `data:image/jpeg;base64,${product.img}`}
                         alt="graphic card"
                     />
                     <CardContent>
