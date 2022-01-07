@@ -27,6 +27,7 @@ import MakeAdmin from '../Components/Dashboard/MakeAdmin';
 import AddProduct from '../Components/Dashboard/AddProduct';
 import ManageAllOrders from '../Components/Dashboard/ManageAllOrders';
 import ManageProducts from '../Components/Dashboard/ManageProducts';
+import Profile from '../Components/Profile/Profile';
 
 const drawerWidth = 250;
 
@@ -73,6 +74,11 @@ export default function Dashboard(props) {
                         <Link to={`${url}/addproduct`} style={{ color: 'inherit', textDecoration: 'none' }}>
                             <ListItem button >
                                 <ListItemText primary="Add product" />
+                            </ListItem>
+                        </Link>
+                        <Link to={`${url}/settings`} style={{ color: 'inherit', textDecoration: 'none' }}>
+                            <ListItem button >
+                                <ListItemText primary="Settings" />
                             </ListItem>
                         </Link>
                     </Box>
@@ -180,6 +186,9 @@ export default function Dashboard(props) {
                             <ManageProducts />
                         </AdminRoute>
                     }
+                    <Route exact path={`${path}/settings`}>
+                        <Profile />
+                    </Route>
                     <Route exact path={`${path}/pay`}>
                         <Pay />
                     </Route>
