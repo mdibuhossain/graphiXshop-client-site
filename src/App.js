@@ -8,12 +8,16 @@ import AllProducts from './Pages/AllProducts';
 import PrivateRoute from './ProtectedRoute/PrivateRoute';
 import PurchaseOrder from './Pages/PurchaseOrder';
 import Dashboard from './Pages/Dashboard';
+import Profile from './Components/Profile/Profile';
+import Navigation from './Components/Shared/Navigation';
+import Footer from './Components/Shared/Footer';
 
 function App() {
   return (
     <div className="App">
       <AuthContext>
         <BrowserRouter>
+          <Navigation />
           <Switch>
             <Route exact path='/'>
               <Home />
@@ -24,6 +28,9 @@ function App() {
             <Route path='/register'>
               <Register />
             </Route>
+            <PrivateRoute path='/settings'>
+              <Profile />
+            </PrivateRoute>
             <PrivateRoute path='/explore'>
               <AllProducts />
             </PrivateRoute>
@@ -34,6 +41,7 @@ function App() {
               <Dashboard />
             </PrivateRoute>
           </Switch>
+          <Footer />
         </BrowserRouter>
       </AuthContext>
     </div>

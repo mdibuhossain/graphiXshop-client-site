@@ -10,13 +10,11 @@ import SubBanner from '../Components/Shared/SubBanner';
 const Home = () => {
     return (
         <div>
-            <Navigation />
             <BannerSlider />
             <SubBanner />
             <DisplayProduct />
             <TrackingBanner />
             <Review />
-            <Footer />
         </div>
     );
 };

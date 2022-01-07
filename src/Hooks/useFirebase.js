@@ -15,6 +15,11 @@ export const useFirebase = () => {
     const [reviewValue, setReviewValue] = useState(0);
     console.log(user);
 
+    const userNewDataUpdate = (data) => {
+        updateProfile(auth.currentUser, {
+            ...data
+        }).then(() => { }).catch(error => console.log(error.message))
+    }
 
     const userRegister = (name, email, password, location, history) => {
         setIsLoading(true);
@@ -102,6 +107,7 @@ export const useFirebase = () => {
         reviewValue,
         userRegister,
         setReviewValue,
+        userNewDataUpdate
     }
 }
 

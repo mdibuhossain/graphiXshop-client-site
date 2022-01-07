@@ -1,7 +1,6 @@
 import { Alert, Button, CircularProgress, Container, Grid, TextField } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { useState } from 'react';
-import Navigation from '../Components/Shared/Navigation';
 import useAuth from '../Hooks/useAuth';
 import placeOrder from '../images/placeOrder.jpg';
 
@@ -46,7 +45,6 @@ const PurchaseOrder = () => {
     console.log(order);
     return (
         <>
-            <Navigation />
             <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', mt: 5 }}>
                 <Container>
                     <Grid container spacing={2} sx={{ alignItems: 'center' }}>

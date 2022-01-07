@@ -15,7 +15,6 @@ const AllProducts = () => {
     }, [])
     return (
         <>
-            <Navigation />
             <Box sx={{ my: 5 }}>
                 <Container>
                     <Title
@@ -32,7 +31,6 @@ const AllProducts = () => {
                     </Grid>
                 </Container>
             </Box>
-            <Footer />
         </>
     );
 };

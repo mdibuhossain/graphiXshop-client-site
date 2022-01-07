@@ -29,7 +29,6 @@ const Register = () => {
 
     return (
         <>
-            <Navigation />
             <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                 <Container sx={{ mt: 10 }}>
                     <Grid container spacing={2} sx={{ alignItems: 'center' }}>
