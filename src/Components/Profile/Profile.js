@@ -10,13 +10,16 @@ const Profile = () => {
         const tmpData = await { ...newUserData };
         tmpData[e.target.name] = await e.target.value;
         await setNewUserData(tmpData);
-        if (!setNewUserData?.displayName)
-            delete newUserData['displayName'];
-        if (!setNewUserData?.photoURL)
-            delete newUserData['photoURL'];
     }
-    const handleSubmitData = (e) => {
-        userNewDataUpdate(newUserData);
+    const handleSubmitData = async (e) => {
+        if (newUserData?.displayName === '') {
+            userNewDataUpdate({ photoURL: newUserData?.photoURL });
+        }
+        else if (newUserData?.photoURL === '') {
+            userNewDataUpdate({ displayName: newUserData?.displayName });
+        }
+        else
+            userNewDataUpdate(newUserData);
         e.preventDefault();
     }
     return (
@@ -24,10 +27,10 @@ const Profile = () => {
             <Paper elevation={5} sx={{ mt: 8 }}>
                 <Box sx={{ width: '280px', m: 5 }}>
                     <form onSubmit={handleSubmitData}>
-                        <Typography variant='button'>
+                        <Typography sx={{ fontSize: '18px' }}>
                             Name: <span style={{ fontWeight: 500 }}>{user?.displayName}</span>
                         </Typography>
-                        <img style={{ width: '100%', margin: '15px 0' }} src={user?.photoURL || 'https://www.publicdomainpictures.net/pictures/280000/velka/not-found-image-15383864787lu.jpg'} alt="" />
+                        <img style={{ width: '100%', margin: '20px 0' }} src={user?.photoURL || 'https://www.publicdomainpictures.net/pictures/280000/velka/not-found-image-15383864787lu.jpg'} alt="" />
                         <Box sx={{ display: 'flex', flexDirection: 'column' }}>
                             <TextField onChange={handleChangeData} defaultValue={newUserData?.displayName} name="displayName" label="New name" variant="outlined" />
                             <TextField onChange={handleChangeData} defaultValue={newUserData?.photoURL} name="photoURL" label="New profile photo (URL)" variant="outlined" sx={{ my: 3 }} />

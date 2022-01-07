@@ -13,12 +13,13 @@ export const useFirebase = () => {
     const [admin, setAdmin] = useState(false);
     const [order, setOrder] = useState({});
     const [reviewValue, setReviewValue] = useState(0);
+    const [update, setUpdate] = useState(0);
     console.log(user);
 
     const userNewDataUpdate = (data) => {
         updateProfile(auth.currentUser, {
             ...data
-        }).then(() => { }).catch(error => console.log(error.message))
+        }).then(() => { setUpdate(update + 1) }).catch(error => console.log(error.message))
     }
 
     const userRegister = (name, email, password, location, history) => {
@@ -92,7 +93,7 @@ export const useFirebase = () => {
             setIsLoading(false);
         });
         return () => unsubscribe;
-    }, [auth])
+    }, [auth, update])
 
     return {
         user,
