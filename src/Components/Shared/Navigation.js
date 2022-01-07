@@ -9,11 +9,18 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { Link } from 'react-router-dom';
 import useAuth from '../../Hooks/useAuth';
 import { makeStyles } from '@mui/styles';
-import { Divider, Drawer, List, ListItem, ListItemText, useTheme } from '@mui/material';
+import { Avatar, Divider, Drawer, Fade, List, ListItem, ListItemText, MenuItem, MenuList, Paper, Popover, Popper, useTheme } from '@mui/material';
 
 export default function Navigation() {
-
-    const [state, setState] = React.useState(false);
+    const [open, setOpen] = React.useState(false);
+    const [anchorEl, setAnchorEl] = React.useState(null);
+    const handleProfileMenu = (event) => {
+        setAnchorEl(event.currentTarget);
+        setOpen((previousOpen) => !previousOpen);
+    };
+    const handleClose = () => {
+        setOpen(false);
+    }
 
     const { user, logOut } = useAuth();
     const theme = useTheme();
@@ -27,6 +34,7 @@ export default function Navigation() {
             textDecoration: 'none'
         },
         navContainer: {
+            display: 'flex',
             [theme.breakpoints.down('md')]: {
                 display: 'none'
             }
@@ -86,7 +94,7 @@ export default function Navigation() {
             <Box sx={{ flexGrow: 1 }}>
                 <AppBar position="static">
                     <Toolbar>
-                        <IconButton
+                        {/* <IconButton
                             size="large"
                             edge="start"
                             color="inherit"
@@ -96,24 +104,52 @@ export default function Navigation() {
                             onClick={() => setState(true)}
                         >
                             <MenuIcon />
-                        </IconButton>
+                        </IconButton> */}
                         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                             <Link to='/' style={{ color: 'inherit', textDecoration: 'none' }}>
                                 GraphiXshop
                             </Link>
                         </Typography>
-                        <Box className={navContainer}>
+                        <Box>
                             <Link to='/explore' className={navItem}>
                                 <Button color="inherit">Products</Button>
                             </Link>
+                            <Popover
+                                open={open}
+                                anchorEl={anchorEl}
+                                onClose={handleClose}
+                                anchorOrigin={{
+                                    vertical: 'bottom',
+                                    horizontal: 'left',
+                                }}
+                            >
+                                <Fade in={open}>
+                                    <Paper elevation={3} sx={{ width: 1 }}>
+                                        <MenuList sx={{ background: 'white' }}>
+                                            <Link to="/dashboard" style={{ textDecoration: 'none', color: 'inherit' }}>
+                                                <MenuItem>
+                                                    Dashboard
+                                                </MenuItem>
+                                            </Link>
+                                            <MenuItem onClick={logOut}>
+                                                Log out
+                                            </MenuItem>
+                                        </MenuList>
+                                    </Paper>
+                                </Fade>
+                            </Popover>
                             {
                                 user?.email ?
-                                    <Box sx={{ display: 'inline-block' }}>
-                                        <Link className={navItem} to='/dashboard'>
-                                            <Button color="inherit">Dashboard</Button>
-                                        </Link>
-                                        <Button onClick={logOut} color="inherit">Log out</Button>
-                                    </Box> :
+                                    <Button>
+                                        <Avatar onClick={handleProfileMenu} alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                                    </Button>
+                                    // <Box sx={{ display: 'inline-block' }}>
+                                    //     <Link className={navItem} to='/dashboard'>
+                                    //         <Button color="inherit">Dashboard</Button>
+                                    //     </Link>
+                                    //     <Button onClick={logOut} color="inherit">Log out</Button>
+                                    // </Box>
+                                    :
                                     <Link to='/login' className={navItem}>
                                         <Button color="inherit">Login</Button>
                                     </Link>
@@ -122,7 +158,7 @@ export default function Navigation() {
                     </Toolbar>
                 </AppBar>
             </Box>
-            <div>
+            {/* <div>
                 <React.Fragment>
                     <Drawer
                         open={state}
@@ -131,7 +167,7 @@ export default function Navigation() {
                         {list}
                     </Drawer>
                 </React.Fragment>
-            </div>
+            </div> */}
         </>
     );
 }

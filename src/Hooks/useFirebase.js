@@ -13,6 +13,8 @@ export const useFirebase = () => {
     const [admin, setAdmin] = useState(false);
     const [order, setOrder] = useState({});
     const [reviewValue, setReviewValue] = useState(0);
+    console.log(user);
+
 
     const userRegister = (name, email, password, location, history) => {
         setIsLoading(true);
