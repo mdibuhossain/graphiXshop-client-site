@@ -12,7 +12,7 @@ const ManageAllOrders = () => {
     const [orderList, setOrderList] = React.useState([]);
 
     React.useEffect(() => {
-        fetch(`https://shielded-headland-50795.herokuapp.com/allorders`)
+        fetch(`${process.env.REACT_APP_SERVER_URL}/allorders`)
             .then(res => res.json())
             .then(data => setOrderList(data))
     }, [orderList])
@@ -20,7 +20,7 @@ const ManageAllOrders = () => {
     const handleCancelOrder = async (id) => {
         const conf = await window.confirm('Are you sure want to delete this order?');
         if (conf) {
-            const url = await fetch(`https://shielded-headland-50795.herokuapp.com/orders/${id}`, {
+            const url = await fetch(`${process.env.REACT_APP_SERVER_URL}/orders/${id}`, {
                 method: 'DELETE'
             });
             const res = await url.json();
@@ -32,14 +32,13 @@ const ManageAllOrders = () => {
     }
 
     const handleStatus = (id) => {
-        fetch(`https://shielded-headland-50795.herokuapp.com/order/status/${id}`, {
+        fetch(`${process.env.REACT_APP_SERVER_URL}/order/status/${id}`, {
             method: "PUT",
             headers: {
                 'content-type': 'application/json'
             }
         }).then(res => res.json())
             .then(data => {
-                console.log(data);
             })
 
     }
@@ -66,7 +65,7 @@ const ManageAllOrders = () => {
                                 <TableCell component="th" scope="order?">{order?.product?.name}</TableCell>
                                 <TableCell component="th" scope="order?">{order?.email}</TableCell>
                                 <TableCell align="left">
-                                    {order?.status} <Button onClick={()=>handleStatus(order._id)} variant="contained" sx={{ ml: 2 }}>shipped</Button>
+                                    {order?.status} <Button onClick={() => handleStatus(order._id)} variant="contained" sx={{ ml: 2 }}>shipped</Button>
                                 </TableCell>
                                 <TableCell align="left">
                                     <Button onClick={() => handleCancelOrder(order._id)}>Cancel</Button>

@@ -8,7 +8,7 @@ import Title from '../Shared/Title';
 const Review = () => {
     const [reviews, setReviews] = useState([]);
     useEffect(() => {
-        fetch(`https://shielded-headland-50795.herokuapp.com/reviews`)
+        fetch(`${process.env.REACT_APP_SERVER_URL}/reviews`)
             .then(res => res.json())
             .then(data => setReviews(data))
     }, [])

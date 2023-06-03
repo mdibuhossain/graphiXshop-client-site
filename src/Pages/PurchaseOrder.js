@@ -27,7 +27,7 @@ const PurchaseOrder = () => {
     }
 
     const handleSubmitOrder = async (e) => {
-        fetch('https://shielded-headland-50795.herokuapp.com/orders', {
+        fetch(`${process.env.REACT_APP_SERVER_URL}/orders`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -42,7 +42,7 @@ const PurchaseOrder = () => {
             })
         e.preventDefault();
     }
-    console.log(order);
+
     return (
         <>
             <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', mt: 5 }}>

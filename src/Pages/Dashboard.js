@@ -37,7 +37,6 @@ export default function Dashboard(props) {
     const [mobileOpen, setMobileOpen] = React.useState(false);
 
     const { logOut, admin } = useAuth();
-    console.log(admin);
 
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);

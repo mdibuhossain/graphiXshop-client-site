@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Alert, Button, CircularProgress, Container, Grid, TextField, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import { Link, useLocation, useHistory } from 'react-router-dom';
-import Navigation from '../Components/Shared/Navigation';
 import registerImg from '../images/register.jpg';
 import useAuth from '../Hooks/useAuth';
 

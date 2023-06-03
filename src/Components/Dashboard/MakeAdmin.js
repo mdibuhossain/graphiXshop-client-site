@@ -12,7 +12,7 @@ const MakeAdmin = () => {
     }
     const handleMakeAdmin = (e) => {
         const user = { email };
-        fetch('https://shielded-headland-50795.herokuapp.com/users/admin', {
+        fetch(`${process.env.REACT_APP_SERVER_URL}/users/admin`, {
             method: 'PUT',
             headers: {
                 'authorization': `Bearer ${token}`,
@@ -22,7 +22,6 @@ const MakeAdmin = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
                 if (data.modifiedCount) {
                     setMakeAdminSuccessfully(true);
                     setEmail('');

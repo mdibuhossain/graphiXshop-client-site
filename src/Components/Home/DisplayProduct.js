@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 const DisplayProduct = () => {
     const [disProduct, setDisProduct] = useState([]);
     useEffect(() => {
-        fetch(`https://shielded-headland-50795.herokuapp.com/limit_products`)
+        fetch(`${process.env.REACT_APP_SERVER_URL}/limit_products`)
             .then(res => res.json())
             .then(data => setDisProduct(data))
     }, [])

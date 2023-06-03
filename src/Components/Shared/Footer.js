@@ -7,7 +7,6 @@ import logo from '../../images/logo.png';
 
 const Footer = () => {
     const location = useLocation();
-    console.log(location);
     if (!(location?.pathname?.includes('dashboard')))
         return (
             <Box sx={{ backgroundColor: '#303540', color: 'white', mt: 10, pt: 8 }}>

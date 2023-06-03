@@ -30,7 +30,7 @@ const AddProduct = () => {
             formData.append(key, newProductData[key]);
         }
 
-        fetch('https://shielded-headland-50795.herokuapp.com/products', {
+        fetch(`${process.env.REACT_APP_SERVER_URL}/products`, {
             method: "POST",
             body: formData
         })

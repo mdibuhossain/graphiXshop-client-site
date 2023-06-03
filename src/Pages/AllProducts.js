@@ -3,13 +3,11 @@ import { Container, Grid } from '@mui/material';
 import { Box } from '@mui/system';
 import Title from '../Components/Shared/Title';
 import Product from '../Components/Shared/Product';
-import Navigation from '../Components/Shared/Navigation';
-import Footer from '../Components/Shared/Footer';
 
 const AllProducts = () => {
     const [disProduct, setDisProduct] = useState([]);
     useEffect(() => {
-        fetch(`https://shielded-headland-50795.herokuapp.com/products`)
+        fetch(`${process.env.REACT_APP_SERVER_URL}/products`)
             .then(res => res.json())
             .then(data => setDisProduct(data))
     }, [])

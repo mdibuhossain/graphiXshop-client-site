@@ -22,7 +22,7 @@ const AddReview = () => {
         setReviewData(tmpReview);
     }
     const handleSubmitReview = (e) => {
-        fetch('https://shielded-headland-50795.herokuapp.com/reviews', {
+        fetch(`${process.env.REACT_APP_SERVER_URL}/reviews`, {
             method: "POST",
             headers: {
                 'content-type': 'application/json'

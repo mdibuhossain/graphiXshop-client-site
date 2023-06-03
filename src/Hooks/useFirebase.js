@@ -14,7 +14,6 @@ export const useFirebase = () => {
     const [order, setOrder] = useState({});
     const [reviewValue, setReviewValue] = useState(0);
     const [update, setUpdate] = useState(0);
-    console.log(user);
 
     const userNewDataUpdate = (data) => {
         updateProfile(auth.currentUser, {
@@ -39,7 +38,6 @@ export const useFirebase = () => {
     }
 
     const logIn = (email, password, location, history) => {
-        console.log(location, history);
         setIsLoading(true);
         signInWithEmailAndPassword(auth, email, password)
             .then(result => {
@@ -62,17 +60,17 @@ export const useFirebase = () => {
 
     const saveUser = (email, displayName, method) => {
         const user = { email, displayName };
-        fetch('https://shielded-headland-50795.herokuapp.com/users', {
+        fetch(`${process.env.REACT_APP_SERVER_URL}/users`, {
             method: method,
             headers: {
                 'content-type': 'application/json'
             },
             body: JSON.stringify(user)
-        }).then(data => console.log(data));
+        }).then();
     }
 
     useEffect(() => {
-        fetch(`https://shielded-headland-50795.herokuapp.com/users/${user?.email}`)
+        fetch(`${process.env.REACT_APP_SERVER_URL}/users/${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 setAdmin(data?.admin);
