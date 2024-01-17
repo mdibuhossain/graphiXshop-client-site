@@ -27,7 +27,7 @@ const PurchaseOrder = () => {
     }
 
     const handleSubmitOrder = async (e) => {
-        fetch(`${process.env.REACT_APP_SERVER_URL}/orders`, {
+        fetch(`${import.meta.env.VITE_APP_SERVER_URL}/orders`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

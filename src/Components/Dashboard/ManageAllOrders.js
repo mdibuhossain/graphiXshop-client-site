@@ -12,7 +12,7 @@ const ManageAllOrders = () => {
     const [orderList, setOrderList] = React.useState([]);
 
     React.useEffect(() => {
-        fetch(`${process.env.REACT_APP_SERVER_URL}/allorders`)
+        fetch(`${import.meta.env.VITE_APP_SERVER_URL}/allorders`)
             .then(res => res.json())
             .then(data => setOrderList(data))
     }, [orderList])
@@ -20,7 +20,7 @@ const ManageAllOrders = () => {
     const handleCancelOrder = async (id) => {
         const conf = await window.confirm('Are you sure want to delete this order?');
         if (conf) {
-            const url = await fetch(`${process.env.REACT_APP_SERVER_URL}/orders/${id}`, {
+            const url = await fetch(`${import.meta.env.VITE_APP_SERVER_URL}/orders/${id}`, {
                 method: 'DELETE'
             });
             const res = await url.json();
@@ -32,7 +32,7 @@ const ManageAllOrders = () => {
     }
 
     const handleStatus = (id) => {
-        fetch(`${process.env.REACT_APP_SERVER_URL}/order/status/${id}`, {
+        fetch(`${import.meta.env.VITE_APP_SERVER_URL}/order/status/${id}`, {
             method: "PUT",
             headers: {
                 'content-type': 'application/json'

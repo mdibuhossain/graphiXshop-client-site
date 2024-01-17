@@ -30,7 +30,7 @@ const AddProduct = () => {
             formData.append(key, newProductData[key]);
         }
 
-        fetch(`${process.env.REACT_APP_SERVER_URL}/products`, {
+        fetch(`${import.meta.env.VITE_APP_SERVER_URL}/products`, {
             method: "POST",
             body: formData
         })

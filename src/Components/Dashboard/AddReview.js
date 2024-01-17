@@ -22,7 +22,7 @@ const AddReview = () => {
         setReviewData(tmpReview);
     }
     const handleSubmitReview = (e) => {
-        fetch(`${process.env.REACT_APP_SERVER_URL}/reviews`, {
+        fetch(`${import.meta.env.VITE_APP_SERVER_URL}/reviews`, {
             method: "POST",
             headers: {
                 'content-type': 'application/json'

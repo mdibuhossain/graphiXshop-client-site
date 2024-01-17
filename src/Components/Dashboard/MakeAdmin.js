@@ -12,7 +12,7 @@ const MakeAdmin = () => {
     }
     const handleMakeAdmin = (e) => {
         const user = { email };
-        fetch(`${process.env.REACT_APP_SERVER_URL}/users/admin`, {
+        fetch(`${import.meta.env.VITE_APP_SERVER_URL}/users/admin`, {
             method: 'PUT',
             headers: {
                 'authorization': `Bearer ${token}`,

@@ -12,7 +12,7 @@ const ManageProducts = () => {
     const [productList, setProductList] = React.useState([]);
 
     React.useEffect(() => {
-        fetch(`${process.env.REACT_APP_SERVER_URL}/products`)
+        fetch(`${import.meta.env.VITE_APP_SERVER_URL}/products`)
             .then(res => res.json())
             .then(data => setProductList(data))
     }, [productList])
@@ -20,7 +20,7 @@ const ManageProducts = () => {
     const handleCancelOrder = async (id) => {
         const conf = await window.confirm('Are you sure want to delete your order?');
         if (conf) {
-            const url = await fetch(`${process.env.REACT_APP_SERVER_URL}/products/${id}`, {
+            const url = await fetch(`${import.meta.env.VITE_APP_SERVER_URL}/products/${id}`, {
                 method: 'DELETE'
             });
             const res = await url.json();

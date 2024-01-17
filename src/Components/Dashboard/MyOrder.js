@@ -14,7 +14,7 @@ const MyOrder = () => {
     const [orderList, setOrderList] = React.useState([]);
 
     React.useEffect(() => {
-        fetch(`${process.env.REACT_APP_SERVER_URL}/orders?email=${user?.email}`, {
+        fetch(`${import.meta.env.VITE_APP_SERVER_URL}/orders?email=${user?.email}`, {
             headers: {
                 'authorization': `Bearer ${token}`
             }
@@ -25,7 +25,7 @@ const MyOrder = () => {
     const handleCancelOrder = async (id) => {
         const conf = await window.confirm('Are you sure want to delete your order?');
         if (conf) {
-            const url = await fetch(`${process.env.REACT_APP_SERVER_URL}/orders/${id}`, {
+            const url = await fetch(`${import.meta.env.VITE_APP_SERVER_URL}/orders/${id}`, {
                 method: 'DELETE'
             });
             const res = await url.json();

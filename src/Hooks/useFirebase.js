@@ -60,7 +60,7 @@ export const useFirebase = () => {
 
     const saveUser = (email, displayName, method) => {
         const user = { email, displayName };
-        fetch(`${process.env.REACT_APP_SERVER_URL}/users`, {
+        fetch(`${import.meta.env.VITE_APP_SERVER_URL}/users`, {
             method: method,
             headers: {
                 'content-type': 'application/json'
@@ -70,7 +70,7 @@ export const useFirebase = () => {
     }
 
     useEffect(() => {
-        fetch(`${process.env.REACT_APP_SERVER_URL}/users/${user?.email}`)
+        fetch(`${import.meta.env.VITE_APP_SERVER_URL}/users/${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 setAdmin(data?.admin);

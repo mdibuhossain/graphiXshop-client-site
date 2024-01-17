@@ -8,7 +8,7 @@ import Title from '../Shared/Title';
 const Review = () => {
     const [reviews, setReviews] = useState([]);
     useEffect(() => {
-        fetch(`${process.env.REACT_APP_SERVER_URL}/reviews`)
+        fetch(`${import.meta.env.VITE_APP_SERVER_URL}/reviews`)
             .then(res => res.json())
             .then(data => setReviews(data))
     }, [])

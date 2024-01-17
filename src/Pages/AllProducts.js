@@ -7,7 +7,7 @@ import Product from '../Components/Shared/Product';
 const AllProducts = () => {
     const [disProduct, setDisProduct] = useState([]);
     useEffect(() => {
-        fetch(`${process.env.REACT_APP_SERVER_URL}/products`)
+        fetch(`${import.meta.env.VITE_APP_SERVER_URL}/products`)
             .then(res => res.json())
             .then(data => setDisProduct(data))
     }, [])
