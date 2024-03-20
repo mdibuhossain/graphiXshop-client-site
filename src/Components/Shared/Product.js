@@ -21,34 +21,25 @@ const Product = ({ product }) => {
   return (
     <Grid item xs={12} md={4}>
       <Card sx={{ maxWidth: 370, margin: "auto" }}>
-        <CardActionArea sx={{ minHeight: 400 }}>
+        <CardActionArea sx={{ minHeight: 200 }}>
           <CardMedia
             component="img"
-            height="350px"
-            image={product.img}
+            height="300px"
+            image={product?.imgs[0]}
             alt="graphic card"
-            sx={{  objectFit: "contain" }}
+            sx={{}}
           />
           <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
-              {product.name}
+            <Typography gutterBottom variant="h6" component="div">
+              {product?.name}
             </Typography>
             <Typography
               gutterBottom
-              variant="h6"
+              variant="h7"
               component="div"
               sx={{ color: "#1565C0", fontWeight: "600" }}
             >
-              ৳{product.price}
-            </Typography>
-            <Typography
-              variant="body2"
-              color="text.secondary"
-              sx={{
-                height: "100px",
-              }}
-            >
-              {product.description}
+              ৳{Number(product?.price)}
             </Typography>
           </CardContent>
         </CardActionArea>

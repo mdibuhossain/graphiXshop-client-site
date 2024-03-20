@@ -44,9 +44,9 @@ export default function Navigation() {
                                 </Link>
                             </Typography>
                             <Box>
-                                {/* <Link to='/explore' className={navItem}>
+                                <Link to='/explore' className={navItem}>
                                     <Button color="inherit">Products</Button>
-                                </Link> */}
+                                </Link>
                                 <Popover
                                     open={open}
                                     anchorEl={anchorEl}

@@ -8,7 +8,7 @@ import Title from '../Shared/Title';
 const Review = () => {
     const [reviews, setReviews] = useState([]);
     useEffect(() => {
-        fetch(`${import.meta.env.VITE_APP_SERVER_URL}/reviews`)
+        fetch("/reviews.json")
             .then(res => res.json())
             .then(data => setReviews(data))
     }, [])
@@ -27,7 +27,7 @@ const Review = () => {
         <Container>
             <Title
                 subTitle="TESTIMONIAL"
-                title="Clients Feedback"
+                title="Users Feedback"
             />
             <AliceCarousel
                 responsive={responsive}
