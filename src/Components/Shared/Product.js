@@ -27,6 +27,7 @@ const Product = ({ product }) => {
             height="350px"
             image={product.img}
             alt="graphic card"
+            sx={{  objectFit: "contain" }}
           />
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
@@ -38,7 +39,7 @@ const Product = ({ product }) => {
               component="div"
               sx={{ color: "#1565C0", fontWeight: "600" }}
             >
-              ${product.price}
+              ৳{product.price}
             </Typography>
             <Typography
               variant="body2"

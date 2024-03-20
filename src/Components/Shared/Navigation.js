@@ -40,13 +40,13 @@ export default function Navigation() {
                         <Toolbar>
                             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                                 <Link to='/' style={{ color: 'inherit', textDecoration: 'none' }}>
-                                    GraphiXshop
+                                    OnlineCarMart
                                 </Link>
                             </Typography>
                             <Box>
-                                <Link to='/explore' className={navItem}>
+                                {/* <Link to='/explore' className={navItem}>
                                     <Button color="inherit">Products</Button>
-                                </Link>
+                                </Link> */}
                                 <Popover
                                     open={open}
                                     anchorEl={anchorEl}

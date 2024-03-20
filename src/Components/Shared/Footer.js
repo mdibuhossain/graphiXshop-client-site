@@ -14,11 +14,11 @@ const Footer = () => {
                     <Grid container spacing={2}>
                         <Grid item md={4} xs={12}>
                             <Box>
-                                <img src={logo} alt="" style={{ width: '230px' }} />
+                                {/* <img src={logo} alt="" style={{ width: '230px' }} /> */}
                             </Box>
                             <Box>
                                 <Typography variant="body2">
-                                    A graphics card is an expansion card which generates a feed of output images to a display device. Frequently, these are advertised as discrete or dedicated graphics cards, emphasizing the distinction between these and integrated graphics.
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit Nulla accumsan, metus ultrices eleifend gravi, Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                                 </Typography>
                             </Box>
                         </Grid>
@@ -28,7 +28,7 @@ const Footer = () => {
                             </Typography>
                             <Box>
                                 <Link to='/' style={{ color: 'white', textDecoration: 'none', display: 'block', marginBottom: '5px' }}>Home</Link>
-                                <Link to='/explore' style={{ color: 'white', textDecoration: 'none', display: 'block', marginBottom: '5px' }}>Explore</Link>
+                                {/* <Link to='/explore' style={{ color: 'white', textDecoration: 'none', display: 'block', marginBottom: '5px' }}>Explore</Link> */}
                                 <Link to='/dashboard' style={{ color: 'white', textDecoration: 'none', display: 'block', marginBottom: '5px' }}>Dashboard</Link>
                             </Box>
                         </Grid>
@@ -58,7 +58,7 @@ const Footer = () => {
                     </Grid>
                 </Container>
                 <Box sx={{ backgroundColor: 'rgba(20, 21, 22, 0.5)', mt: 5, py: 2, textAlign: 'center', color: 'rgb(198, 198, 198)' }}>
-                    <Typography>Copyright © 2021 graphiXshop LTD. All rights reserved.</Typography>
+                    <Typography>Copyright © 2024 OnlineCarMart LTD. All rights reserved.</Typography>
                 </Box>
             </Box>
         );

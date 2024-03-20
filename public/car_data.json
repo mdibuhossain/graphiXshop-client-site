@@ -3,28 +3,28 @@
     "_id": {
       "$oid": "618f916559b81d70e106e9c2"
     },
-    "name": "GeForce GTX 1080 Ti GAMING X TRIO",
-    "price": "520",
-    "description": "The GeForce RTX 3090 is a big ferocious GPU (BFGPU) with TITAN class performance. It's powered by Ampere—NVIDIA's 2nd gen RTX architecture—",
-    "img": "https://asset.msi.com/resize/image/global/product/product_3_20171012153630_59df1b7ecd614.png62405b38c58fe0f07fcef2367d8a9ba1/400.png"
+    "name": "Toyota Premio F Ex",
+    "price": "3,480,000",
+    "description": "FEATURES: *PUSH START *IDOL STOP *ELECTRICALLY ADJUSTABLE DRIVING SEATS TRACTION CONTROL *NICKEL DOOR HANDLE",
+    "img": "/img/car1.jpg"
   },
   {
     "_id": {
       "$oid": "618f916559b81d70e106e9c6"
     },
-    "name": "GeForce GTX 1050 GAMING X 2G",
-    "price": "399",
-    "description": "Core Pipes are precision-machined for maximum contact over the GPU and spread the heat along the full length of the heatsink for optimal cooling.",
-    "img": "https://asset.msi.com/resize/image/global/product/product_9_20180416131414_5ad43126705b3.png62405b38c58fe0f07fcef2367d8a9ba1/400.png"
+    "name": "Toyota C-HR",
+    "price": "3,100,000",
+    "description": "Japan Auto Market provides per-order service. Other Services & Support : 01. 3 Years service & Support",
+    "img": "/img/car2.jpg"
   },
   {
     "_id": {
       "$oid": "618f916559b81d70e106e9cd"
     },
-    "name": "GeForce GTX 1050 2GT LP",
-    "price": "100",
-    "description": "The latest price of MSI RTX 3090 Gaming X Trio Graphics Card in Bangladesh is 242,000৳. You can buy the MSI RTX 3090 Gaming X Trio Graphics Card at best price from our website or visit any of our showrooms.",
-    "img": "https://asset.msi.com/resize/image/global/product/product_5_20180416145633_5ad44921bec69.png62405b38c58fe0f07fcef2367d8a9ba1/400.png"
+    "name": "Toyota Esquire Gi Premium",
+    "price": "4,200,000",
+    "description": "FEATURES: *PUSH START *IDOL STOP *ELECTRICALLY ADJUSTABLE DRIVING SEATS TRACTION CONTROL *NICKEL DOOR HANDLE",
+    "img": "/img/car3.jpg"
   },
   {
     "_id": {

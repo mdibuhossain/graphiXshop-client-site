@@ -1,13 +1,11 @@
 import React from 'react';
 import Slider from 'react-animated-slider';
 import 'react-animated-slider/build/horizontal.css';
-import banner1 from '../../images/b1.jpeg';
-import banner2 from '../../images/b2.jpeg';
-import banner3 from '../../images/b3.jpeg';
-import banner4 from '../../images/b4.jpeg';
-import banner5 from '../../images/b5.jpeg';
+import banner1 from '../../images/b1.png';
+import banner2 from '../../images/b2.png';
+import banner3 from '../../images/b3.webp';
 
-const slideList = [banner1, banner2, banner3, banner4, banner5];
+const slideList = [banner1, banner2, banner3];
 
 const BannerSlider = () => {
     return (
@@ -15,7 +13,7 @@ const BannerSlider = () => {
             {slideList.map((item, index) => (
                 <div
                     key={index}
-                    style={{ background: `url('${item}') no-repeat center center`, backgroundSize: 'auto 100%'}}
+                    style={{ background: `url('${item}') no-repeat center center`, backgroundSize: 'cover'}}
                 />
             ))}
         </Slider>

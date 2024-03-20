@@ -12,7 +12,7 @@ const SubBanner = () => {
                 <Grid container spacing={2} sx={{ alignItems: 'center' }}>
                     <Grid item md={6} xs={12}>
                         <Typography variant="h3">
-                            We are doing the great<br /> creative things.
+                        The car of your dreams is waiting for you!
                         </Typography>
                     </Grid>
                     <Grid item md={6} xs={12}>

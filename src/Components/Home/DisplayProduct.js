@@ -24,17 +24,17 @@ const DisplayProduct = () => {
             <Product key={index} product={product} />
           ))}
         </Grid>
-        <Link
+        {/* <Link
           to="/explore"
           style={{ color: "inherit", textDecoration: "none" }}
-        >
+        > */}
           <Button
             variant="contained"
             sx={{ margin: "25px auto", display: "block" }}
           >
             See more
           </Button>
-        </Link>
+        {/* </Link> */}
       </Container>
     </Box>
   );
