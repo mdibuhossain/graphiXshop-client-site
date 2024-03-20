@@ -67,24 +67,20 @@ const AllProducts = () => {
     let tmpValue = tmpFilter[key] ? [...tmpFilter[key]] : [];
     if (flag) {
       tmpValue = [...tmpValue, value];
-
-      let tmpFilteredProduct = [...filteredProduct];
-      tmpFilteredProduct = tmpFilteredProduct.filter(
-        (item) => item[key] === value
-      );
-      setFilteredProduct(tmpFilteredProduct);
     } else {
       tmpValue = tmpValue.filter((item) => item !== value);
-
-      let tmpFilteredProduct = [...filteredProduct];
-      tmpFilteredProduct = tmpFilteredProduct.filter(
-        (item) => item[key] !== value
-      );
-      setFilteredProduct(tmpFilteredProduct);
     }
     tmpFilter[key] = tmpValue;
     setSelectedFilter(tmpFilter);
     console.log(tmpFilter);
+    let tmpFilterData = [...disProduct];
+    tmpFilterData = tmpFilterData.filter((item) => {
+      return Object.keys(tmpFilter).every((filterKey) => {
+        if (!tmpFilter[filterKey].length) return true;
+        return tmpFilter[filterKey].includes(item[filterKey]);
+      });
+    });
+    setFilteredProduct(tmpFilterData);
   };
 
   return (
