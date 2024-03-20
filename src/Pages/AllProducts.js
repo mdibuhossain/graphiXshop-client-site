@@ -74,6 +74,7 @@ const AllProducts = () => {
     setSelectedFilter(tmpFilter);
     console.log(tmpFilter);
     let tmpFilterData = [...disProduct];
+    // advanced filter function
     tmpFilterData = tmpFilterData.filter((item) => {
       return Object.keys(tmpFilter).every((filterKey) => {
         if (!tmpFilter[filterKey].length) return true;
