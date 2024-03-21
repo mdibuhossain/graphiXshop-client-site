@@ -44,7 +44,7 @@ const Product = ({ product }) => {
           </CardContent>
         </CardActionArea>
         <Link
-          to="/purchase"
+          to={`/product/${product?._id}`}
           style={{ color: "inherit", textDecoration: "none" }}
         >
           <Button
@@ -52,7 +52,7 @@ const Product = ({ product }) => {
             variant="contained"
             sx={{ width: 1, borderRadius: 0 }}
           >
-            Buy now
+            See more
           </Button>
         </Link>
       </Card>

@@ -11,6 +11,7 @@ import Dashboard from "./Pages/Dashboard";
 import Profile from "./Components/Profile/Profile";
 import Navigation from "./Components/Shared/Navigation";
 import Footer from "./Components/Shared/Footer";
+import SingleProduct from "./Pages/SingleProduct";
 
 function App() {
   return (
@@ -24,6 +25,9 @@ function App() {
             </Route>
             <Route path="/explore">
               <AllProducts />
+            </Route>
+            <Route path="/product/:id">
+              <SingleProduct />
             </Route>
             <Route path="/login">
               <Login />
